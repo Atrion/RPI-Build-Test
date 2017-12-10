@@ -14,4 +14,14 @@ script:
 - sudo bash ./create-image
 - xz -z rpizw-rover.img -c > rpizw-rover.img.xz
 - zip rpizw-rover.img.zip rpizw-rover.img
-
+deploy:
+  provider: releases
+  api_key:
+    secure: PqBjkctrYSoTMAVefnF0PyefnIleN3OSXUvDYzDe5mD4xQ5O/8oa5ZQfiwZ5TN1fxmXF4d3yk7+6DYGeZ1aCjILh2IdyXH8ZxYfmx+TLlzD0OfLVEcmT7CWztHfUis3NaOVaGDioZGwggHhwdM85UT6LLywrTLzZdya2TjVi7m6yWqS+MB3P/vZpkks9AfxKcWbh8wuRilmflqvEqkUVwE+zhavJ4l+y/RQaUjNys3j5IgQJ+K8ySdmq4IIYsKn1cSZENm5oOMDyitmpDLBcx6XNtVhpGsBl37p4+9cToALtbA/2J84nzjDkyI/lXQw4hAe4rxQmzgdsG0WREKxz+IAhw/YGUzshAIRfnm0v+DW23Q2SVaRRTo+hCCMPmyNehWVPsJeeFP4NFEGX3e9U98MX2IaeRcfybZWLQF5dmBza6cfakt8xoyewC6UnGKFk96vG5AjUx1VDSmlS2uDPIOtY5wdrijPzd04GkfcfJ5trzpQJdyhHfqFVbHYbGpQr7Ki9WAP9bE+EYOn2gCcOMru7twJXsavXMAwJUa/ZNlHCKJKJJDl6PtrP0TLZ1QgMR8IdDtVZ+dAu0GZD4h/b+045DJwe88D5a6n4Gx+1SoatQGoj2Cy+vFSrntfTF3lx9QyJfBICxzyZHsLSNMKaHesGMXbvy8l42IejZVXF5AA=
+  file:
+  - rpizw-rover.img.xz
+  - rpizw-rover.img.zip
+  skip_cleanup: true
+  on:
+    repo: Atrion/RPI-Build-Test
+    tags: true
